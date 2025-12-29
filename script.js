@@ -237,53 +237,25 @@ function initGallery() {
     const lightboxNext = document.getElementById('lightboxNext');
 
     // Asset Configuration
-    // Generated based on file list: 1-74 images (mixed exts), plus videos
+    // Synchronized with actual files in images/ directory
     const assets = [
         // Videos
-        { type: 'video', src: 'images/32.mp4' },
-        { type: 'video', src: 'images/39.mp4' },
-        { type: 'video', src: 'images/42.mp4' },
-        { type: 'video', src: 'images/51.mp4' },
-        { type: 'video', src: 'images/55.mp4' },
-        { type: 'video', src: 'images/59.mp4' },
-        { type: 'video', src: 'images/60.mp4' },
-        { type: 'video', src: 'images/61.mp4' },
-        { type: 'video', src: 'images/62.mp4' },
-        { type: 'video', src: 'images/71.mp4' },
+        { type: 'video', src: 'images/2.mp4', caption: 'Special Moment 💕' },
+        { type: 'video', src: 'images/3.mp4', caption: 'Pure Joy ✨' },
+        { type: 'video', src: 'images/4.mp4', caption: 'Our Story 💖' },
+        { type: 'video', src: 'images/5.mp4', caption: 'Forever & Always 💓' }
     ];
 
-    // Add Images 1-74
-    // Hardcoding specific known extensions, defaulting rest to .jpg
-    const specialExtensions = {
-        6: 'jpeg',
-        66: 'webp',
-        73: 'webp'
-    };
-
-    const missingImages = [32, 39, 42, 51, 55, 59, 60, 61, 62, 71]; // These are videos, so skip if image file doesn't exist (assuming mapped by number)
-    // Actually, based on file list, numbers are unique across types mostly, or coexist.
-    // Let's just iterate 1 to 74. If it's in the video list above, we might have skipped it or it's a diff file.
-    // Looking at file list: 32.mp4 exists. 32.jpg does NOT appear in the list.
-    // So distinct numbers for videos vs images mostly?
-    // Let's allow for the full range and catch errors or just filter based on what we saw.
-    // To be safe and precise, I'll list the ranges or check against known files.
-    // simpler approach: iterate 1 to 74.
+    // Add Images: 1.jpg and 6.jpg through 52.jpg
+    // Image 1
+    assets.push({ type: 'image', src: 'images/1.jpg', caption: 'Memory #1 💕' });
     
-    for (let i = 1; i <= 74; i++) {
-        // Skip if it's a known video number and no image exists (based on previous scan)
-        // Previous scan showed: 32.mp4 (no 32.jpg), 39.mp4 (no 39.jpg), etc.
-        // So we can assume numbers are unique identifiers.
-        if ([32, 39, 42, 51, 55, 59, 60, 61, 62, 71].includes(i)) continue;
-
-        const ext = specialExtensions[i] || 'jpg';
-        assets.push({ type: 'image', src: `images/${i}.${ext}`, caption: `Memory #${i} 💕` });
+    // Images 6-52
+    for (let i = 6; i <= 52; i++) {
+        assets.push({ type: 'image', src: `images/${i}.jpg`, caption: `Memory #${i} ✨` });
     }
 
-    // Shuffle assets for a random mix (optional, but nice)
-    // assets.sort(() => Math.random() - 0.5); 
-    // Keeping them ordered for now or maybe shuffle slightly? 
-    // Let's just keep videos mixed in at the start or dispersed?
-    // Let's shuffle them to make the collage look balanced (videos mixed with images)
+    // Shuffle assets for a dynamic experience
     assets.sort(() => Math.random() - 0.5);
 
 
