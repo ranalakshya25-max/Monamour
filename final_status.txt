@@ -1,0 +1,29 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   remotes.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    remotes.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	final_status.txt
+
+total 92
+drwxr-xr-x. 1 Abhi Abhi   158 Dec 29 12:54 .
+drwxr-xr-x. 1 Abhi Abhi  1132 Dec 29 12:49 ..
+-rw-r--r--. 1 Abhi Abhi   459 Dec 29 12:54 final_status.txt
+drwxr-xr-x. 1 Abhi Abhi   148 Dec 29 12:54 .git
+drwxr-xr-x. 1 Abhi Abhi   606 Dec 29 11:59 images
+-rw-r--r--. 1 Abhi Abhi 16738 Dec 29 12:08 index.html
+-rw-r--r--. 1 Abhi Abhi    46 Dec 29 12:13 md5.txt
+drwxr-xr-x. 1 Abhi Abhi    52 Dec 29 12:49 music
+-rw-r--r--. 1 Abhi Abhi   231 Dec 29 12:13 out.txt
+drwxr-xr-x. 1 Abhi Abhi    30 Dec 24 15:23 .qodo
+-rw-r--r--. 1 Abhi Abhi 24124 Dec 29 12:01 script.js
+-rw-r--r--. 1 Abhi Abhi 35779 Dec 16 11:49 styles.css
