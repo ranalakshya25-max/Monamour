@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love 💕</title>
+    <meta name="description" content="A special birthday surprise for the most amazing person in my life">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff6b9d'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Welcome Overlay -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="overlay-content">
+            <h1 class="overlay-title">A Special Surprise Awaits...</h1>
+            <p class="overlay-subtitle">For the most beautiful soul 💕</p>
+            <button class="enter-btn" id="enterBtn">Click to Open ✨</button>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#home" class="nav-logo">💕</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#quotes">Love Notes</a></li>
+            <li><a href="#journey">Our Journey</a></li>
+            <li><a href="#wishes">Wishes</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="birthday-badge">🎂 Happy Birthday 🎂</div>
+            <h1 class="hero-name">
+                <span class="letter-animate">M</span>
+                <span class="letter-animate">y</span>
+                <span class="letter-animate"> </span>
+                <span class="letter-animate">L</span>
+                <span class="letter-animate">o</span>
+                <span class="letter-animate">v</span>
+                <span class="letter-animate">e</span>
+            </h1>
+            <p class="hero-tagline">The Most Beautiful Soul I Know ✨</p>
+            <p class="hero-subtitle">Today is the most special day because you came into this world</p>
+            <div class="hero-date">
+                <span class="sparkle">✨</span>
+                January 22, 2026
+                <span class="sparkle">✨</span>
+            </div>
+
+            <!-- Love Stats -->
+            <div class="love-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">💕</div>
+                    <div class="stat-number" data-target="320">0</div>
+                    <div class="stat-label">Days of Love</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">😊</div>
+                    <div class="stat-number" data-target="∞">∞</div>
+                    <div class="stat-label">Smiles Shared</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">💖</div>
+                    <div class="stat-number" data-target="∞">∞</div>
+                    <div class="stat-label">Love for You</div>
+                </div>
+            </div>
+
+            <a href="#gallery" class="cta-button">
+                <span>Explore Our Memories</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+            </a>
+        </div>
+        <div class="hero-decoration">
+            <div class="floating-heart heart-1">💕</div>
+            <div class="floating-heart heart-2">💖</div>
+            <div class="floating-heart heart-3">💗</div>
+            <div class="floating-heart heart-4">💝</div>
+            <div class="floating-heart heart-5">💓</div>
+        </div>
+    </section>
+
+    <!-- Music Player (Fixed) -->
+    <div class="music-player" id="musicPlayer">
+        <div class="player-toggle" id="playerToggle">
+            <span class="music-icon">🎵</span>
+        </div>
+        <div class="player-content">
+            <div class="now-playing">
+                <div class="album-art">
+                    <div class="disc-animation"></div>
+                </div>
+                <div class="song-info">
+                    <span class="song-title" id="songTitle">Select a Song</span>
+                    <span class="song-artist" id="songArtist">Our Love Playlist</span>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button class="control-btn" id="prevBtn">⏮</button>
+                <button class="control-btn play-btn" id="playBtn">▶</button>
+                <button class="control-btn" id="nextBtn">⏭</button>
+            </div>
+            <div class="progress-container">
+                <span id="currentTime">0:00</span>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <span id="duration">0:00</span>
+            </div>
+            <div class="volume-control">
+                <span>🔊</span>
+                <input type="range" id="volumeSlider" min="0" max="100" value="70">
+            </div>
+            <!-- Playlist -->
+            <div class="playlist">
+                <p class="playlist-title">💕 Our Love Songs</p>
+                <div class="playlist-items" id="playlist">
+                    <!-- Songs will be added dynamically or you can add manually -->
+                    <div class="playlist-item active" data-src="music/1.mp3" data-title="Special Day"
+                        data-artist="Birthday Vibes">
+                        <span class="song-number">1</span>
+                        <span class="song-name">Special Day</span>
+                    </div>
+                    <div class="playlist-item" data-src="music/2.mp3" data-title="Sweet Memories"
+                        data-artist="Our Story">
+                        <span class="song-number">2</span>
+                        <span class="song-name">Sweet Memories</span>
+                    </div>
+                    <div class="playlist-item" data-src="music/3.mp3" data-title="Forever Yours" data-artist="My Heart">
+                        <span class="song-number">3</span>
+                        <span class="song-name">Forever Yours</span>
+                    </div>
+                    <div class="playlist-item" data-src="music/4.mp3" data-title="Endless Love" data-artist="Always">
+                        <span class="song-number">4</span>
+                        <span class="song-name">Endless Love</span>
+                    </div>
+                    <div class="playlist-item" data-src="music/5.mp3" data-title="Perfect Moment"
+                        data-artist="With You">
+                        <span class="song-number">5</span>
+                        <span class="song-name">Perfect Moment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="section-header">
+            <h2 class="section-title">Our Beautiful Memories</h2>
+            <p class="section-subtitle">Every moment with you is a treasure I hold close to my heart 💕</p>
+        </div>
+        <div class="gallery-grid">
+            <!-- Gallery items will be injected dynamically by script.js -->
+        </div>
+
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">×</button>
+        <button class="lightbox-prev" id="lightboxPrev">❮</button>
+        <img src="" alt="Photo" class="lightbox-img" id="lightboxImg">
+        <button class="lightbox-next" id="lightboxNext">❯</button>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+
+    <!-- Love Quotes Section -->
+    <section id="quotes" class="quotes-section">
+        <div class="section-header">
+            <h2 class="section-title">Love Notes For You</h2>
+            <p class="section-subtitle">Words from my heart to yours 💌</p>
+        </div>
+        <div class="quotes-carousel">
+            <div class="quote-card active" data-index="0">
+                <div class="quote-icon">💕</div>
+                <p class="quote-text">"You are the reason I believe in love. Every moment with you feels like a
+                    beautiful dream I never want to wake up from."</p>
+                <span class="quote-author">— With all my love ❤️</span>
+            </div>
+            <div class="quote-card" data-index="1">
+                <div class="quote-icon">🌹</div>
+                <p class="quote-text">"In a world full of temporary things, you are my forever. Happy Birthday to the
+                    most beautiful soul I know."</p>
+                <span class="quote-author">— Forever yours 💖</span>
+            </div>
+            <div class="quote-card" data-index="2">
+                <div class="quote-icon">✨</div>
+                <p class="quote-text">"Your smile is my favorite view. Your laugh is my favorite sound. Your hug is my
+                    favorite feeling. You are my favorite everything."</p>
+                <span class="quote-author">— Your biggest fan 💗</span>
+            </div>
+            <div class="quote-card" data-index="3">
+                <div class="quote-icon">🦋</div>
+                <p class="quote-text">"Thank you for being born, for existing, and for choosing to love me. You make
+                    every day worth living."</p>
+                <span class="quote-author">— Always and forever 💝</span>
+            </div>
+            <div class="quote-card" data-index="4">
+                <div class="quote-icon">🌙</div>
+                <p class="quote-text">"Like the moon needs the stars, I need you. You complete me in ways I never knew I
+                    needed."</p>
+                <span class="quote-author">— Under the same sky 🌟</span>
+            </div>
+        </div>
+        <div class="quote-controls">
+            <button class="quote-btn" id="quotePrev">❮</button>
+            <div class="quote-dots" id="quoteDots"></div>
+            <button class="quote-btn" id="quoteNext">❯</button>
+        </div>
+    </section>
+
+    <!-- Love Timeline Section -->
+    <section id="journey" class="timeline-section">
+        <div class="section-header">
+            <h2 class="section-title">Our Love Journey</h2>
+            <p class="section-subtitle">The story of us, one beautiful moment at a time 💑</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-icon">💫</div>
+                <div class="timeline-content">
+                    <span class="timeline-date">The Day We Met</span>
+                    <h3 class="timeline-title">When Our Eyes First Met</h3>
+                    <p class="timeline-text">The moment I saw you, I knew my life was about to change forever. You
+                        walked in and suddenly everything made sense.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-icon">💕</div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Our First Date</span>
+                    <h3 class="timeline-title">The Beginning of Us</h3>
+                    <p class="timeline-text">Nervous butterflies, shy smiles, and the start of the most beautiful
+                        journey of my life. I knew then that you were special.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-icon">❤️</div>
+                <div class="timeline-content">
+                    <span class="timeline-date">When I Said "I Love You"</span>
+                    <h3 class="timeline-title">Three Words, Forever Meaning</h3>
+                    <p class="timeline-text">Those three little words changed everything. From that moment, my heart
+                        belonged to you completely.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-icon">✨</div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Every Day</span>
+                    <h3 class="timeline-title">Building Our Forever</h3>
+                    <p class="timeline-text">Every laugh, every adventure, every quiet moment together—these are the
+                        threads that weave our beautiful story.</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-icon">🎂</div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Today - Your Birthday</span>
+                    <h3 class="timeline-title">Celebrating You</h3>
+                    <p class="timeline-text">Today I celebrate the most amazing person I know. Thank you for being born
+                        and for choosing to share your life with me.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birthday Wishes Section -->
+    <section id="wishes" class="wishes-section">
+        <div class="wishes-bg"></div>
+        <div class="wishes-content">
+            <div class="cake-animation">
+                <div class="cake">
+                    <div class="cake-layer layer-1"></div>
+                    <div class="cake-layer layer-2"></div>
+                    <div class="cake-layer layer-3"></div>
+                    <div class="candles">
+                        <div class="candle">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle">
+                            <div class="flame"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="wishes-title">Happy Birthday, My Love! 🎂💕</h2>
+            <div class="wishes-message">
+                <p>On this special day, I want you to know:</p>
+                <ul class="wishes-list">
+                    <li>You are the most beautiful person, inside and out 💖</li>
+                    <li>Your smile brightens even my darkest days ☀️</li>
+                    <li>I am grateful for every moment with you 🙏</li>
+                    <li>You make me want to be a better person 💪</li>
+                    <li>I love you more than words could ever express ❤️</li>
+                </ul>
+                <p class="wishes-footer">May all your dreams come true, today and always. 🌟</p>
+            </div>
+            <button class="make-wish-btn" id="makeWishBtn">
+                <span>🎉 Click to Make a Wish 🎉</span>
+            </button>
+            <div class="birthday-signature">
+                <p>With all my love,</p>
+                <p class="signature">Forever Yours 💕</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-hearts">
+            <span>💕</span><span>💖</span><span>💗</span><span>💝</span><span>💕</span>
+        </div>
+        <p class="footer-text">Made with infinite love for the most special person in my life</p>
+        <p class="footer-year">© 2025 - Our Love Story 💕</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <span>↑</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
